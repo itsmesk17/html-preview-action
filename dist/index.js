@@ -30950,16 +30950,15 @@ try {
 
     const { sha, repo: { owner, repo } } = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context;
 
-    const previewUrl = `https://htmlpreview.github.io/?https://github.com/${owner}/${repo}/blob/${sha}/${htmlFile}`;
-
-    (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.setOutput)("url", previewUrl);
+    const fs = require('fs');
+    const htmlContent = fs.readFileSync(htmlFile, 'utf8');
 
     if (jobSummary) {
         _actions_core__WEBPACK_IMPORTED_MODULE_0__.summary.addHeading('HTML Preview Action')
             .addRaw(`Using HTML file: ${htmlFile}`)
             .addBreak()
             .addBreak()
-            .addLink('Click here to preview the HTML page in your browser', previewUrl)
+            .addRaw(htmlContent)
             .write();
     }
 } catch (e) {
