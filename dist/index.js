@@ -30959,7 +30959,7 @@ try {
     const htmlContent = (0,external_node_fs_namespaceObject.readFileSync)(htmlFile, 'utf8');
     console.log('htmlContent', htmlContent);
     
-    const htmlContent = `
+    const htmlContent1 = `
         <h1>My Custom Report</h1>
         <table>
           <tr>
@@ -30971,14 +30971,14 @@ try {
             <td>Passed</td>
           </tr>
         </table>`;
-    console.log('htmlContent', htmlContent);
+    console.log('htmlContent', htmlContent1);
 
     if (jobSummary) {
         core.summary.addHeading('HTML Preview Action')
             .addRaw(`Using HTML file: ${htmlFile}`)
             .addBreak()
             .addBreak()
-            .addRaw(htmlContent)
+            .addRaw(htmlContent1)
             .write();
     }
 } catch (e) {
