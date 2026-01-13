@@ -15,5 +15,7 @@ jobs:
       - name: Get HTML preview link
         id: html_preview
         uses: ./ # NOTE: replace with the latest version of this Action
+        with:
+          html_file: index.html
       - name: Log HTML Preview URL
         run: echo "${{ steps.html_preview.outputs.url }}"
