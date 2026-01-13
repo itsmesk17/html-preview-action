@@ -30957,6 +30957,21 @@ try {
     const { sha, repo: { owner, repo } } = github.context;
     console.log('htmlFile', htmlFile);
     const htmlContent = (0,external_node_fs_namespaceObject.readFileSync)(htmlFile, 'utf8');
+    console.log('htmlContent', htmlContent);
+    
+    const htmlContent = `
+        <h1>My Custom Report</h1>
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <td>Test 1</td>
+            <td>Passed</td>
+          </tr>
+        </table>`;
+    console.log('htmlContent', htmlContent);
 
     if (jobSummary) {
         core.summary.addHeading('HTML Preview Action')
