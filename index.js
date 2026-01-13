@@ -7,9 +7,8 @@ try {
 
     const { sha, repo: { owner, repo } } = context;
 
-    const previewUrl = `https://htmlpreview.github.io/?https://github.com/${owner}/${repo}/blob/${sha}/${htmlFile}`;
-
-    setOutput("url", previewUrl);
+    const fs = require('fs');
+    const htmlContent = fs.readFileSync(htmlFile, 'utf8');
 
     if (jobSummary) {
         summary
@@ -17,7 +16,7 @@ try {
             .addRaw(`Using HTML file: ${htmlFile}`)
             .addBreak()
             .addBreak()
-            .addLink('Click here to preview the HTML page in your browser', previewUrl)
+            .addRaw(htmlContent)
             .write();
     }
 } catch (e) {
