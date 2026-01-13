@@ -30978,7 +30978,7 @@ try {
             .addRaw(`Using HTML file: ${htmlFile}`)
             .addBreak()
             .addBreak()
-            .addRaw(htmlContent1)
+            .addCodeBlock(htmlContent1, 'html')
             .write();
     }
 } catch (e) {
