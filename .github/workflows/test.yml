@@ -16,4 +16,4 @@ jobs:
         id: html_preview
         uses: ./ # NOTE: replace with the latest version of this Action
         with:
-          html_file: ${{ github.action_path }}/index.html
+          html_file: ./index.html
