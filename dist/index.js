@@ -30939,22 +30939,27 @@ module.exports = parseParams
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(2186);
-/* harmony import */ var _actions_github__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(5438);
+
+;// CONCATENATED MODULE: external "node:fs"
+const external_node_fs_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:fs");
+// EXTERNAL MODULE: ./node_modules/@actions/core/lib/core.js
+var core = __nccwpck_require__(2186);
+// EXTERNAL MODULE: ./node_modules/@actions/github/lib/github.js
+var github = __nccwpck_require__(5438);
+;// CONCATENATED MODULE: ./index.js
+
 
 
 
 try {
-    const htmlFile = (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)("html_file");
-    const jobSummary = (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getBooleanInput)("job_summary");
-
-    const { sha, repo: { owner, repo } } = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context;
-
-    const fs = require('fs');
-    const htmlContent = fs.readFileSync(htmlFile, 'utf8');
+    const htmlFile = (0,core.getInput)("html_file");
+    const jobSummary = (0,core.getBooleanInput)("job_summary");
+    const { sha, repo: { owner, repo } } = github.context;
+    console.log('htmlFile', htmlFile);
+    const htmlContent = (0,external_node_fs_namespaceObject.readFileSync)(htmlFile, 'utf8');
 
     if (jobSummary) {
-        _actions_core__WEBPACK_IMPORTED_MODULE_0__.summary.addHeading('HTML Preview Action')
+        core.summary.addHeading('HTML Preview Action')
             .addRaw(`Using HTML file: ${htmlFile}`)
             .addBreak()
             .addBreak()
@@ -30962,7 +30967,7 @@ try {
             .write();
     }
 } catch (e) {
-    (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed)(e.message);
+    (0,core.setFailed)(e.message);
 }
 
 })();
