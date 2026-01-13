@@ -30959,12 +30959,26 @@ try {
     const htmlContent = (0,external_node_fs_namespaceObject.readFileSync)(htmlFile, 'utf8');
     console.log('htmlContent', htmlContent);
 
+    const interactiveSnippet = `
+<!-- HTML Component -->
+<button onclick="showMessage('Activated!')">
+  Click Me
+</button>
+
+<!-- JavaScript Logic -->
+<script>
+  function showMessage(msg) {
+    alert("Button " + msg);
+  }
+</script>
+`;
+    
     if (jobSummary) {
         core.summary.addHeading('HTML Preview Action')
             .addRaw(`Using HTML file: ${htmlFile}`)
             .addBreak()
             .addBreak()
-            .addCodeBlock(htmlContent, 'html')
+            .addCodeBlock(interactiveSnippet, 'html')
             .write();
     }
 } catch (e) {
