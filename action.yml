@@ -10,9 +10,6 @@ inputs:
     description: 'Prints a job summary with the link'
     required: false
     default: true
-outputs:
-  url:
-    description: 'The URL of the HTML file specific to this build'
 runs:
   using: 'node20'
   main: 'dist/index.js'
